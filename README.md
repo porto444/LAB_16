@@ -2,12 +2,12 @@
 > **Auteur :** Ahmed  
 > **Outils utilisés :** Frida, Objection, Burp Suite, ADB.
 
-## 📌 Objectif
+##  Objectif
 L'objectif de ce lab est de mettre en place un environnement d'interception de trafic HTTPS pour une application Android protégée par le **SSL Pinning**, en utilisant l'instrumentation dynamique.
 
 ---
 
-## 🛠 Étape 1 : Préparation du PC
+##  Étape 1 : Préparation du PC
 Installation des outils nécessaires via Python/Pip.
 
 ```powershell
@@ -58,13 +58,18 @@ objection -g  com.android.chrome explore --startup-command "android sslpinning d
 ````
 Résultats obtenus :
 .L'application est lancée avec succès.
+
 .Objection a injecté des "hooks" sur les classes OkHttp, TrustManager et WebView.
+
 .Le SSL Pinning est neutralisé dynamiquement en mémoire sans modifier le fichier APK.
 
 ## Étape 5 : Validation et Analyse
 Le trafic HTTPS de l'application cible est désormais visible en clair dans l'onglet HTTP History de Burp Suite.
 Livrables validés :
 .Communication Frida PC <-> Mobile établie.
+
 .Certificat Burp Suite installé.
+
 .Hooking SSL réussi via Objection.
+
 .Requêtes API interceptées (JSON/Headers visibles).
